@@ -64,7 +64,7 @@ class PublicController extends Controller
     public function getLoginNcc(){
         SeoHelper::setTitle(__('Login'));
 
-        Theme::breadcrumb()->add(__('Home'), route('public.index'))->add(__('Login'), route('customer.login'));
+        Theme::breadcrumb()->add(__('Home'), route('public.index'))->add(__('Login'), '');
 
         if (!session()->has('url.intended')) {
             if (!in_array(url()->previous(), [route('customer.login'), route('customer.register')])) {
