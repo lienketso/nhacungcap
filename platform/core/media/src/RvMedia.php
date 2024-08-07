@@ -249,8 +249,8 @@ class RvMedia
 
             return str_replace('.digitaloceanspaces.com', '.cdn.digitaloceanspaces.com', Storage::url($path));
         }
-
-        return Storage::url($path);
+        return 'https://ezlife.vn/storage/'.$path;
+//        return Storage::url($path);
     }
 
     /**
