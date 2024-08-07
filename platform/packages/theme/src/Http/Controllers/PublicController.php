@@ -62,6 +62,9 @@ class PublicController extends Controller
      */
 
     public function getLoginNcc(){
+        if(auth('customer')->check()){
+            return redirect()->route('customer.overview');
+        }
         SeoHelper::setTitle(__('Login'));
 
         Theme::breadcrumb()->add(__('Home'), route('public.index'))->add(__('Login'), route('customer.login'));

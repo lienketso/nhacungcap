@@ -13,12 +13,6 @@
             'icon'  => 'fi-rs-edit-alt'
         ],
         [
-            'key'    => 'customer.orders',
-            'label'  => __('Orders'),
-            'icon'   => 'fi-rs-shopping-bag',
-            'routes' => ['customer.orders.view']
-        ],
-        [
             'key'    => 'customer.address',
             'label'  => __('Address books'),
             'icon'   => 'fi-rs-marker',
@@ -32,26 +26,10 @@
             'label' => __('Change password'),
             'icon'  => 'fi-rs-key'
         ],
-        [
-            'key'   => 'customer.payment-code',
-            'label' => 'Mã thanh toán',
-            'icon'  => 'fi-rs-lock'
-        ],
-        [
-            'key'   => 'ubgxu.dashboard',
-            'label' => 'Quản lý điểm',
-            'icon'  => 'fi-rs-money'
-        ],
+
 
     ];
 
-    if (is_plugin_active('stock') && EcommerceHelper::isAffiliater()) {
-        $menus[] = [
-            'key'   => 'stock-manager.dashboard',
-            'label' => 'Quản lý cổ phần',
-            'icon'  => 'fi-rs-money'
-        ];
-    }
 
 @endphp
 <div class="page-content pt-30 pb-30">
@@ -156,20 +134,6 @@
                                     </li>
                                 @endforeach
 
-                                @if (auth('customer')->user()->is_affiliater)
-                                    <li class="nav-item">
-                                        <a class="nav-link @if (Route::currentRouteName() == 'collaborator.dashboard') active @endif" href="{{ route('collaborator.dashboard') }}" href="{{ route('collaborator.become-collaborator') }}">
-                                            <i class="fi-rs-users mr-10"></i> Đại lý
-                                        </a>
-                                    </li>
-
-                                @else
-                                    <li class="nav-item">
-                                        <a class="nav-link @if (Route::currentRouteName() == 'collaborator.become-collaborator') active @endif" href="{{ route('collaborator.become-collaborator') }}">
-                                            <i class="fi-rs-users mr-10"></i> Đăng ký ứng tuyển đại lý
-                                        </a>
-                                    </li>
-                                @endif
 
                                 @if (is_plugin_active('marketplace'))
                                     @if (auth('customer')->user()->is_vendor)
