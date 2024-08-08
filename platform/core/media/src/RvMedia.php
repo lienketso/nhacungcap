@@ -822,7 +822,7 @@ class RvMedia
     public function getUploadPath(): string
     {
 //        return is_link(public_path('storage')) ? storage_path('app/public') : public_path('storage');
-        return '/home/ezlife/domains/ezlife.vn/public_html/public/storage';
+        return 'https://ezlife.vn/public/storage';
     }
 
     /**
